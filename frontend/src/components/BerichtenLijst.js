@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { getBerichten, deleteBericht } from '../api';
 
 const CATEGORIEEN = ['Nieuws', 'Bekendmaking', 'Vergadering', 'Evenement'];
@@ -10,23 +10,21 @@ function BerichtenLijst({ refreshTrigger, onBewerken, onNieuw }) {
   const [succes, setSucces] = useState('');
   const [filters, setFilters] = useState({ categorie: '', gepubliceerd: '' });
   const [verwijderenId, setVerwijderenId] = useState(null);
+  const filtersRef = useRef(filters);
+  filtersRef.current = filters;
 
-  const laadBerichten = useCallback(async () => {
-    setLaden(true);
-    setFout('');
-    try {
-      const data = await getBerichten(filters);
-      setBerichten(data);
-    } catch (e) {
-      setFout(e.message || 'Kan berichten niet laden.');
-    } finally {
-      setLaden(false);
-    }
-  }, [filters, refreshTrigger]); // eslint-disable-line react-hooks/exhaustive-deps
+  const [localRefresh, setLocalRefresh] = useState(0);
 
   useEffect(() => {
-    laadBerichten();
-  }, [laadBerichten]);
+    let cancelled = false;
+    setLaden(true);
+    setFout('');
+    getBerichten(filtersRef.current)
+      .then((data) => { if (!cancelled) setBerichten(data); })
+      .catch((e) => { if (!cancelled) setFout(e.message || 'Kan berichten niet laden.'); })
+      .finally(() => { if (!cancelled) setLaden(false); });
+    return () => { cancelled = true; };
+  }, [filters, refreshTrigger, localRefresh]);
 
   const handleVerwijderen = async (id) => {
     if (!window.confirm('Weet u zeker dat u dit bericht wilt verwijderen?')) return;
@@ -36,7 +34,7 @@ function BerichtenLijst({ refreshTrigger, onBewerken, onNieuw }) {
       await deleteBericht(id);
       setSucces('Bericht succesvol verwijderd.');
       setTimeout(() => setSucces(''), 3000);
-      laadBerichten();
+      setLocalRefresh((n) => n + 1);
     } catch (e) {
       setFout(e.message || 'Verwijderen mislukt.');
     } finally {
@@ -102,7 +100,7 @@ function BerichtenLijst({ refreshTrigger, onBewerken, onNieuw }) {
           </select>
         </div>
 
-        <button className="btn btn--secundair" onClick={laadBerichten}>
+        <button className="btn btn--secundair" onClick={() => setLocalRefresh((n) => n + 1)}>
           Vernieuwen
         </button>
       </div>
