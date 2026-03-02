@@ -95,8 +95,8 @@ function BerichtenLijst({ refreshTrigger, onBewerken, onNieuw }) {
             onChange={handleFilterChange}
           >
             <option value="">Alle statussen</option>
-            <option value="true">Gepubliceerd</option>
-            <option value="false">Concept</option>
+            <option value="1">Gepubliceerd</option>
+            <option value="0">Concept</option>
           </select>
         </div>
 

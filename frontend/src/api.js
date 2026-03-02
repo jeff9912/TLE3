@@ -41,5 +41,4 @@ export const updateBericht = (id, data) =>
 export const deleteBericht = (id) =>
   fetch(`${BASE_URL}/berichten/${id}`, { method: 'DELETE' }).then((res) => {
     if (!res.ok) throw new Error(`Fout bij verwijderen bericht: ${res.status}`);
-    return res.json();
   });
