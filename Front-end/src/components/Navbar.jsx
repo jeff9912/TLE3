@@ -8,6 +8,7 @@ function Navbar() {
         <img src={zuidplasLogo} alt="Zuidplas Logo" className="h-12 w-auto" />
       </div>
 
+
       <ul className="flex gap-10 text-gray-700 font-medium flex-1 ml-8">
         <li>
           <a href="/" className="hover:text-green-700 transition-colors text-sm">
