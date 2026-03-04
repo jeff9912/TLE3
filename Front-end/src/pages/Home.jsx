@@ -71,7 +71,7 @@ function Home() {
 
       <section className="mx-auto max-w-[1240px]">
         {/* die tags in het midden van de pagina*/}
-        <div className="mb-12">
+        <div className="mb-12 flex gap-8 px-8 py-6 items-center">
           <h2 className="mb-6 text-3xl font-bold text-gray-900">
             Meest gezocht
           </h2>
