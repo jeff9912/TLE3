@@ -4,12 +4,10 @@ import zuidplasLogo from '../assets/img/zuidplas2.png';
 function Navbar() {
   return (
     <nav className="bg-white border-b border-gray-300 px-12 py-4 flex justify-between items-center gap-8">
-      {/* Logo */}
       <div className="flex-shrink-0">
         <img src={zuidplasLogo} alt="Zuidplas Logo" className="h-12 w-auto" />
       </div>
 
-      {/* Navigation Links */}
       <ul className="flex gap-10 text-gray-700 font-medium flex-1 ml-8">
         <li>
           <a href="/" className="hover:text-green-700 transition-colors text-sm">
@@ -28,9 +26,8 @@ function Navbar() {
         </li>
       </ul>
 
-      {/* Right Side Actions */}
+ 
       <div className="flex items-center gap-4 flex-shrink-0">
-        {/* Aanvragen of regelen Button */}
         <button className="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-md font-semibold flex items-center gap-1 transition-colors text-sm">
           Aanvragen of regelen
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -38,7 +35,6 @@ function Navbar() {
           </svg>
         </button>
 
-        {/* Icons */}
         <button className="p-2 hover:bg-gray-100 rounded-md transition-colors">
           <svg className="w-5 h-5 text-gray-600 hover:text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
