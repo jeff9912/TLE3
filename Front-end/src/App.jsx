@@ -1,14 +1,12 @@
 import React from "react";
-import Navbar from "./Navbar";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <div>
+    <div className="min-h-screen bg-gray-100">
       <Navbar />
-      <main style={{ padding: "2rem" }}>
-        <h1>Website</h1>
-        <p>Hier komen dingen te staan later.</p>
-      </main>
+      <Home />
     </div>
   );
 }
