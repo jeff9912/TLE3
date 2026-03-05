@@ -1,19 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import zuidplasLogo from '../assets/img/zuidplas2.png';
+import RequestsDropdown from './RequestsDropdown';
 
 function Navbar() {
+  const navigate = useNavigate();
+  const [showDropdown, setShowDropdown] = useState(false);
+
   return (
+    <>
     <nav className="bg-white border-b border-gray-300 px-12 py-4 flex justify-between items-center gap-8">
       <div className="flex-shrink-0">
-        <img src={zuidplasLogo} alt="Zuidplas Logo" className="h-12 w-auto" />
+        <img src={zuidplasLogo} alt="Zuidplas Logo" className="h-12 w-auto cursor-pointer" onClick={() => navigate('/')} />
       </div>
 
 
       <ul className="flex gap-10 text-gray-700 font-medium flex-1 ml-8">
         <li>
-          <a href="/" className="hover:text-green-700 transition-colors text-sm">
+          <button onClick={() => navigate('/')} className="hover:text-green-700 transition-colors text-sm bg-none border-none cursor-pointer text-gray-700 font-medium">
             Home
-          </a>
+          </button>
         </li>
         <li>
           <a href="/mijn-gemeente" className="hover:text-green-700 transition-colors text-sm">
@@ -29,7 +35,7 @@ function Navbar() {
 
  
       <div className="flex items-center gap-4 flex-shrink-0">
-        <button className="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-md font-semibold flex items-center gap-1 transition-colors text-sm">
+        <button onClick={() => setShowDropdown(true)} className="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-md font-semibold flex items-center gap-1 transition-colors text-sm">
           Aanvragen of regelen
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
             <path d="M3 5a1 1 0 011-1h12a1 1 0 011 1v2H3V5zm0 4h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
@@ -53,6 +59,8 @@ function Navbar() {
         </button>
       </div>
     </nav>
+    {showDropdown && <RequestsDropdown onClose={() => setShowDropdown(false)} />}
+    </>
   );
 }
 
