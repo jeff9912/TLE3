@@ -1,0 +1,24 @@
+2026-03-05T11:54:03.976219Z  INFO tailwindcss_oxide::scanner: Provided sources:
+2026-03-05T11:54:03.976307Z  INFO tailwindcss_oxide::scanner: Source: PublicSourceEntry { base: "c:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end", pattern: "**/*", negated: false }
+2026-03-05T11:54:03.976457Z  INFO tailwindcss_oxide::scanner: Optimized sources:
+2026-03-05T11:54:03.976468Z  INFO tailwindcss_oxide::scanner: Source: Auto { base: "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end" }
+2026-03-05T11:54:03.977804Z  INFO get_files: tailwindcss_oxide::scanner: enter
+2026-03-05T11:54:03.978103Z  INFO get_files:discover_sources: tailwindcss_oxide::scanner: enter
+2026-03-05T11:54:03.978123Z  INFO get_files:discover_sources:walk_synchronous: tailwindcss_oxide::scanner: enter
+2026-03-05T11:54:03.981994Z  INFO get_files:discover_sources:walk_synchronous: tailwindcss_oxide::scanner: exit
+2026-03-05T11:54:03.982583Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\eslint.config.js"
+2026-03-05T11:54:03.982583Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\App.jsx"
+2026-03-05T11:54:03.982608Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\public\\vite.svg"
+2026-03-05T11:54:03.982607Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\index.html"
+2026-03-05T11:54:03.982603Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\README.md"
+2026-03-05T11:54:03.982603Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\package.json"
+2026-03-05T11:54:03.982650Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\pages\\Home.jsx"
+2026-03-05T11:54:03.982607Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\vite.config.js"
+2026-03-05T11:54:03.982583Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\main.jsx"
+2026-03-05T11:54:03.982659Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\assets\\react.svg"
+2026-03-05T11:54:03.982743Z  INFO get_files:discover_sources: tailwindcss_oxide::scanner: exit
+2026-03-05T11:54:03.982814Z  INFO get_files: tailwindcss_oxide::scanner: exit
+2026-03-05T11:54:03.982864Z  INFO get_globs: tailwindcss_oxide::scanner: enter
+2026-03-05T11:54:03.982868Z  INFO get_globs:discover_sources: tailwindcss_oxide::scanner: enter
+2026-03-05T11:54:03.982871Z  INFO get_globs:discover_sources: tailwindcss_oxide::scanner: exit
+2026-03-05T11:54:03.985854Z  INFO get_globs: tailwindcss_oxide::scanner: exit

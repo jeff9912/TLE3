@@ -1,0 +1,29 @@
+2026-03-05T11:52:51.735131Z  INFO tailwindcss_oxide::scanner: Provided sources:
+2026-03-05T11:52:51.735657Z  INFO tailwindcss_oxide::scanner: Source: PublicSourceEntry { base: "c:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end", pattern: "**/*", negated: false }
+2026-03-05T11:52:51.736466Z  INFO tailwindcss_oxide::scanner: Optimized sources:
+2026-03-05T11:52:51.736491Z  INFO tailwindcss_oxide::scanner: Source: Auto { base: "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end" }
+2026-03-05T11:52:51.738232Z  INFO get_files: tailwindcss_oxide::scanner: enter
+2026-03-05T11:52:51.738370Z  INFO get_files:discover_sources: tailwindcss_oxide::scanner: enter
+2026-03-05T11:52:51.738382Z  INFO get_files:discover_sources:walk_synchronous: tailwindcss_oxide::scanner: enter
+2026-03-05T11:52:51.741999Z  INFO get_files:discover_sources:walk_synchronous: tailwindcss_oxide::scanner: exit
+2026-03-05T11:52:51.742607Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\public\\vite.svg"
+2026-03-05T11:52:51.742611Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\.prettierrc"
+2026-03-05T11:52:51.742639Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\README.md"
+2026-03-05T11:52:51.742634Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\main.jsx"
+2026-03-05T11:52:51.742643Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\package.json"
+2026-03-05T11:52:51.742695Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\components\\Footer.jsx"
+2026-03-05T11:52:51.742702Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\App.jsx"
+2026-03-05T11:52:51.742726Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\vite.config.js"
+2026-03-05T11:52:51.742739Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\postcss.config.js"
+2026-03-05T11:52:51.742746Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\tailwind.config.js"
+2026-03-05T11:52:51.742880Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\eslint.config.js"
+2026-03-05T11:52:51.742881Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\components\\Navbar.jsx"
+2026-03-05T11:52:51.742892Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\index.html"
+2026-03-05T11:52:51.742941Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\assets\\react.svg"
+2026-03-05T11:52:51.773361Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\pages\\Home.jsx"
+2026-03-05T11:52:51.773655Z  INFO get_files:discover_sources: tailwindcss_oxide::scanner: exit
+2026-03-05T11:52:51.773808Z  INFO get_files: tailwindcss_oxide::scanner: exit
+2026-03-05T11:52:51.773877Z  INFO get_globs: tailwindcss_oxide::scanner: enter
+2026-03-05T11:52:51.773884Z  INFO get_globs:discover_sources: tailwindcss_oxide::scanner: enter
+2026-03-05T11:52:51.773889Z  INFO get_globs:discover_sources: tailwindcss_oxide::scanner: exit
+2026-03-05T11:52:51.777892Z  INFO get_globs: tailwindcss_oxide::scanner: exit
