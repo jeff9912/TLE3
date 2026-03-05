@@ -39,7 +39,6 @@ const categories = [
 function Home() {
   return (
     <main className="px-6 py-6">
-      {/* Hero Section */}
       <section className="mx-auto grid max-w-[1240px] grid-cols-1 gap-3 lg:grid-cols-[2fr_1fr] mb-12">
         <div className="overflow-hidden rounded-md">
           <img
@@ -70,7 +69,7 @@ function Home() {
       </section>
 
       <section className="mx-auto max-w-[1240px]">
-        {/* die tags in het midden van de pagina*/}
+
         <div className="mb-12 flex gap-8 px-8 py-6 items-center">
           <h2 className="mb-6 text-3xl font-bold text-gray-900">
             Meest gezocht
@@ -95,7 +94,7 @@ function Home() {
           </div>
         </div>
 
-        {/* die shit onderin is hier*/}
+
         <div className="flex gap-12 items-start">
           {categories.map((category) => (
             <div key={category.title} className="flex flex-col min-w-[250px]">
@@ -113,7 +112,7 @@ function Home() {
                 ))}
               </ul>
 
-              {/* plaatjes */}
+
               <div className="overflow-hidden rounded-lg">
                 <img
                   src={category.image}

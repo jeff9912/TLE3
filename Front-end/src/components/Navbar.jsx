@@ -14,7 +14,6 @@ function Navbar() {
         <img src={zuidplasLogo} alt="Zuidplas Logo" className="h-12 w-auto cursor-pointer" onClick={() => navigate('/')} />
       </div>
 
-
       <ul className="flex gap-10 text-gray-700 font-medium flex-1 ml-8">
         <li>
           <button onClick={() => navigate('/')} className="hover:text-green-700 transition-colors text-sm bg-none border-none cursor-pointer text-gray-700 font-medium">
@@ -33,7 +32,6 @@ function Navbar() {
         </li>
       </ul>
 
- 
       <div className="flex items-center gap-4 flex-shrink-0">
         <button onClick={() => setShowDropdown(true)} className="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-md font-semibold flex items-center gap-1 transition-colors text-sm">
           Aanvragen of regelen

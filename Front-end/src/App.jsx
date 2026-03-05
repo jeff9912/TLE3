@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import Requests from "./pages/Requests";
 import WMOForm from "./pages/WMOForm";
 
 function App() {
@@ -14,7 +13,6 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/aanvragen" element={<Requests />} />
             <Route path="/wmo-form" element={<WMOForm />} />
           </Routes>
         </main>

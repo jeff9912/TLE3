@@ -25,7 +25,13 @@ function RequestsDropdown({ onClose }) {
 
   return (
     <div className="fixed inset-0 bg-black/20 z-40" onClick={onClose}>
-      <div className="absolute top-0 left-0 right-0 bg-white shadow-lg z-50" onClick={(e) => e.stopPropagation()}>
+      <div
+        className="absolute top-0 left-0 right-0 bg-white shadow-lg z-50"
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          backgroundImage: 'linear-gradient(to bottom, rgba(255,255,255,1) 85%, rgba(255,255,255,0))',
+        }}
+      >
         <div className="mx-auto max-w-7xl px-6 py-12">
           <button
             onClick={onClose}
@@ -36,14 +42,13 @@ function RequestsDropdown({ onClose }) {
             </svg>
           </button>
 
-          <h1 className="text-4xl font-bold text-gray-900 text-center mb-12">
+          <h1 className="text-2xl font-bold text-gray-900 text-center mb-12">
             Wat wil je vandaag aanvragen/regelen?
           </h1>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-4xl mx-auto">
-            {/* Aanvragen Section */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-8">Aanvragen:</h2>
+              <h2 className="text-lg font-bold text-gray-900 mb-6">Aanvragen:</h2>
               <ul className="space-y-4">
                 {aanvragenItems.map((item, index) => (
                   <li key={index}>
@@ -56,16 +61,15 @@ function RequestsDropdown({ onClose }) {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <span className="text-lg font-medium">{item.label}</span>
+                      <span className="text-sm font-medium">{item.label}</span>
                     </button>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Regelen Section */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-8">Regelen:</h2>
+              <h2 className="text-lg font-bold text-gray-900 mb-6">Regelen:</h2>
               <ul className="space-y-4">
                 {regelenItems.map((item, index) => (
                   <li key={index}>
@@ -78,7 +82,7 @@ function RequestsDropdown({ onClose }) {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <span className="text-lg font-medium">{item.label}</span>
+                      <span className="text-sm font-medium">{item.label}</span>
                     </button>
                   </li>
                 ))}
