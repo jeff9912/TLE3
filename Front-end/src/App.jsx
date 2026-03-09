@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import WMOForm from "./pages/WMOForm";
+import CategoryDetail from "./pages/CategoryDetail";
+import AllTopics from "./pages/AllTopics";
 import Article from "./pages/Article";
 
 function App() {
@@ -15,7 +17,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/wmo-form" element={<WMOForm />} />
-            <Route path="/artikel/:topic" element={<Article />} />
+            <Route path="/alle-onderwerpen" element={<AllTopics />} />
+            <Route path="/categorie/:category" element={<CategoryDetail />} />
+            <Route path="/artikel/:category/:topic" element={<Article />} />
           </Routes>
         </main>
         <Footer />

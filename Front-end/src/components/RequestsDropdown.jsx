@@ -54,9 +54,9 @@ function RequestsDropdown({ onClose }) {
                   <li key={index}>
                     <button
                       onClick={() => handleItemClick(item.path)}
-                      className="flex items-center gap-3 text-gray-900 hover:text-green-600 transition-colors group"
+                       className="flex items-center gap-3 text-gray-900 hover:text-blue-600 transition-colors group"
                     >
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-600 flex items-center justify-center group-hover:bg-green-700">
+                       <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center group-hover:bg-blue-700">
                         <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
@@ -75,9 +75,9 @@ function RequestsDropdown({ onClose }) {
                   <li key={index}>
                     <button
                       onClick={() => handleItemClick(item.path)}
-                      className="flex items-center gap-3 text-gray-900 hover:text-green-600 transition-colors group"
+                       className="flex items-center gap-3 text-gray-900 hover:text-blue-600 transition-colors group"
                     >
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-600 flex items-center justify-center group-hover:bg-green-700">
+                       <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center group-hover:bg-blue-700">
                         <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>

@@ -47,14 +47,14 @@ function WMOForm() {
             </p>
           </div>
 
-          <div className="bg-green-50 border border-green-300 p-4 rounded">
+          <div className="bg-blue-50 border border-blue-300 p-4 rounded">
             <h5 className="font-bold text-gray-900 mb-2">Wat is Stichting ZO!</h5>
             <p className="text-sm text-gray-700">
               Makkelijk en snel toegang tot zorg, welzijn en ondersteuning. Dat is het doel van Stichting ZO! Sinds 2021 is ZO! de plek waar ervaring en kennis in de gemeente Zuidplas op één plek samenkomt. ZO! gaat uit van samenwerking en van eigen kracht. Tijdens onze activiteiten en diensten staan ontmoeten, ontdekken, omarmen en ondersteunen centraal.
             </p>
           </div>
 
-          <div className="bg-green-50 border border-green-300 p-4 rounded">
+          <div className="bg-blue-50 border border-blue-300 p-4 rounded">
             <h5 className="font-bold text-gray-900 mb-2">Zovoerelkaar</h5>
             <p className="text-sm text-gray-700 mb-2">
               ZO! is ook de initiatiefnemer van de website www.zovoerelkaar.nl. Dit is het digitale dorpsplein van Zuidplas waar iedereen onder meer berichten, activiteiten en vrijwilligerswerk kan plaatsen. Er is een nauwe samenwerking tussen Stichting ZO! en de gemeente Zuidplas.
@@ -66,7 +66,7 @@ function WMOForm() {
 
 <button
   onClick={() => window.location.href = "https://www.stzo.nl/wmo-loket"}
-  className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-md transition-colors flex items-center justify-center gap-2"
+    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-md transition-colors flex items-center justify-center gap-2"
 >
   WMO melding doen
   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,7 +74,7 @@ function WMOForm() {
   </svg>
 </button>
 
-          <div className="bg-green-50 border border-green-300 p-4 rounded">
+          <div className="bg-blue-50 border border-blue-300 p-4 rounded">
             <h5 className="font-bold text-gray-900 mb-3">Wat regel je nog meer via Stichting ZO!</h5>
             <p className="text-sm text-gray-700 mb-3">
               Je kunt er terecht voor je informatie over vrijwilligerswerk, voor inzet in jouw buurt en voor meerdoen aan veel verschillende activiteiten voor alle leeftijden. Daarnaast kun je er terecht voor Zorg en hulp, onder andere:
@@ -111,7 +111,7 @@ function WMOForm() {
 
           <button
             onClick={() => window.open('https://www.stzo.nl', '_blank')}
-            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-md transition-colors flex items-center justify-center gap-2"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-md transition-colors flex items-center justify-center gap-2"
           >
             www.stzo.nl
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -119,7 +119,7 @@ function WMOForm() {
             </svg>
           </button>
 
-          <div className="bg-green-50 border border-green-300 p-4 rounded">
+          <div className="bg-blue-50 border border-blue-300 p-4 rounded">
             <h5 className="font-bold text-gray-900 mb-2">Vragen of meer informatie</h5>
             <p className="text-sm text-gray-700 mb-3">
               Voor meer informatie of vragen kun je contact opnemen met de medewerkers van Stichting ZO!
@@ -136,7 +136,7 @@ function WMOForm() {
 
   return (
     <main className="min-h-screen">
-      <section className="bg-green-50 border-b border-gray-300">
+      <section className="bg-blue-50 border-b border-gray-300">
         <div className="mx-auto max-w-3xl px-6 py-12">
           <div className="text-center">
             <h1 className="text-5xl font-bold text-gray-900 mb-2">
