@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import heroBackground from '../assets/img/achtergrond-hero.png';
 import stad1 from '../assets/img/stad1.png';
 import stad2 from '../assets/img/stad2.png';
@@ -26,7 +27,7 @@ const categories = [
   },
   {
     title: 'Leven',
-    items: ['Trouwen', 'Scheiden', 'Geboort'],
+    items: ['Trouwen', 'Scheiden', 'Geboorte'],
     image: stad3,
   },
   {
@@ -105,9 +106,12 @@ function Home() {
               <ul className="mb-4 space-y-2">
                 {category.items.map((item) => (
                   <li key={item}>
-                    <button className="text-sm font-medium text-gray-900 hover:text-green-600">
+                    <Link
+                      to={`/artikel/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="text-sm font-medium text-gray-900 hover:text-green-600"
+                    >
                       › {item}
-                    </button>
+                    </Link>
                   </li>
                 ))}
               </ul>

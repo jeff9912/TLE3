@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import WMOForm from "./pages/WMOForm";
+import Article from "./pages/Article";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/wmo-form" element={<WMOForm />} />
+            <Route path="/artikel/:topic" element={<Article />} />
           </Routes>
         </main>
         <Footer />

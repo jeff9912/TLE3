@@ -29,6 +29,10 @@ function Navbar() {
           <a href="/contact" className="hover:text-green-700 transition-colors text-sm">
             Contact opnemen
           </a>
+        </li>        <li>
+          <a href="/nieuws" className="hover:text-green-700 transition-colors text-sm">
+            Nieuws
+          </a>
         </li>
       </ul>
 
