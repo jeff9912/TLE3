@@ -40,12 +40,12 @@ const categories = [
 function Home() {
   return (
     <main className="px-6 py-6">
-      <section className="mx-auto grid max-w-[1240px] grid-cols-1 gap-3 lg:grid-cols-[2fr_1fr] mb-12">
+      <section className="mx-auto grid max-w-310 grid-cols-1 gap-3 lg:grid-cols-[2fr_1fr] mb-12">
         <div className="overflow-hidden rounded-md">
           <img
             src={heroBackground}
             alt="Parkeerzone bord"
-            className="h-[470px] w-full object-cover"
+            className="h-117.5 w-full object-cover"
           />
         </div>
 
@@ -69,7 +69,7 @@ function Home() {
         </aside>
       </section>
 
-      <section className="mx-auto max-w-[1240px]">
+      <section className="mx-auto max-w-310">
 
         <div className="mb-12 flex flex-col gap-6 px-8 py-6 md:flex-row md:items-center">
           <h2 className="text-3xl font-bold text-gray-900">

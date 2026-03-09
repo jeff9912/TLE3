@@ -12,8 +12,14 @@ function App() {
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-gray-100 flex flex-col">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-100 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-blue-700 focus:shadow"
+        >
+          Ga direct naar inhoud
+        </a>
         <Navbar />
-        <main className="flex-grow">
+        <main id="main-content" className="grow" tabIndex={-1}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/wmo-form" element={<WMOForm />} />

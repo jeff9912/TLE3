@@ -88,14 +88,14 @@ const allCategories = [
 function AllTopics() {
   return (
     <main className="min-h-screen bg-gray-50 px-6 py-8">
-      <div className="mx-auto max-w-[1240px]">
+      <div className="mx-auto max-w-310">
         {/* breadcrums */}
-        <nav className="mb-6 text-sm">
+        <nav className="mb-6 text-sm" aria-label="Breadcrumb">
           <Link to="/" className="text-blue-600 hover:underline">
             Home
           </Link>
           <span className="mx-2 text-gray-400">›</span>
-          <span className="text-gray-600">Alle onderwerpen</span>
+          <span className="text-gray-700" aria-current="page">Alle onderwerpen</span>
         </nav>
 
         {/* Header */}
@@ -115,19 +115,13 @@ function AllTopics() {
               key={category.title}
               className="rounded-xl bg-white p-8 shadow-sm"
             >
-              <div className="mb-6 flex items-center justify-between">
+              <div className="mb-6">
                 <div>
                   <h2 className="mb-2 text-3xl font-bold text-gray-900">
                     {category.title}
                   </h2>
                   <p className="text-gray-600">{category.description}</p>
                 </div>
-                <Link
-                  to={`/categorie/${category.slug}`}
-                  className="text-sm font-medium text-blue-600 hover:underline"
-                >
-                  Bekijk alles →
-                </Link>
               </div>
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

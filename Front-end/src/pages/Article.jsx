@@ -145,9 +145,9 @@ function Article() {
 
   return (
     <main className="px-6 py-8 bg-white">
-      <div className="mx-auto max-w-[800px]">
+      <div className="mx-auto max-w-200">
 
-        <nav className="mb-6 text-sm">
+        <nav className="mb-6 text-sm" aria-label="Breadcrumb">
           <Link to="/" className="text-blue-600 hover:underline">
             Home
           </Link>
@@ -155,7 +155,7 @@ function Article() {
           <Link to={`/categorie/${category}`} className="text-blue-600 hover:underline">{articleData.category}
           </Link>
           <span className="mx-2 text-gray-400">›</span>
-          <span className="text-gray-600 capitalize">{articleData.title}</span>
+          <span className="text-gray-700 capitalize" aria-current="page">{articleData.title}</span>
         </nav>
 
         <header className="mb-8 border-b border-gray-200 pb-6">
@@ -235,6 +235,7 @@ function Article() {
                 return (
                   <div key={index} className="mb-6 overflow-x-auto">
                     <table className="min-w-full border border-gray-200">
+                      <caption className="sr-only">Overzicht van locaties, adressen en openingstijden</caption>
                       <thead className="bg-gray-50">
                         <tr>
                           {section.headers.map((header, hIndex) => (
