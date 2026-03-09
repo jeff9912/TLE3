@@ -9,15 +9,23 @@ const categoryData = {
     items: [
       {
         title: 'Parkeren',
-        description: 'Informatie over parkeervergunningen, tarieven en parkeerplaatsen.',
+        description: 'Parkeervergunningen en tarieven',
       },
       {
         title: 'Afval',
-        description: 'Afvalinzameling, afvalkalender en afvalscheiding.',
+        description: 'Afvalinzameling en -scheiding',
       },
       {
         title: 'Natuur',
-        description: 'Groen in de stad, parken en natuurgebieden.',
+        description: 'Groen in de stad',
+      },
+      {
+        title: 'Straat en stoep',
+        description: 'Onderhoud openbare ruimte',
+      },
+      {
+        title: 'Verlichting',
+        description: 'Straatverlichting en meldingen',
       },
     ],
   },
@@ -27,15 +35,23 @@ const categoryData = {
     items: [
       {
         title: 'Verhuizen',
-        description: 'Adreswijziging doorgeven en verhuisaangifte.',
+        description: 'Adreswijziging doorgeven',
       },
       {
         title: 'Belastingen',
-        description: 'Gemeentelijke belastingen en heffingen.',
+        description: 'Gemeentelijke heffingen',
       },
       {
         title: 'Verbouwen',
-        description: 'Vergunningen voor verbouwing en renovatie.',
+        description: 'Bouwvergunningen',
+      },
+      {
+        title: 'Woning zoeken',
+        description: 'Sociale woningbouw',
+      },
+      {
+        title: 'Energiebesparing',
+        description: 'Subsidies en tips',
       },
     ],
   },
@@ -45,15 +61,23 @@ const categoryData = {
     items: [
       {
         title: 'Trouwen',
-        description: 'Informatie over trouwen en geregistreerd partnerschap.',
+        description: 'Trouwlocaties en documenten',
       },
       {
         title: 'Scheiden',
-        description: 'Wat te doen bij een echtscheiding.',
+        description: 'Procedures bij scheiding',
       },
       {
         title: 'Geboorte',
-        description: 'Geboorteaangifte en geboortedocumenten.',
+        description: 'Geboorteaangifte regelen',
+      },
+      {
+        title: 'Overlijden',
+        description: 'Uitvaart en documenten',
+      },
+      {
+        title: 'Burgerzaken',
+        description: 'Paspoort en identiteitskaart',
       },
     ],
   },
@@ -63,15 +87,23 @@ const categoryData = {
     items: [
       {
         title: 'WMO',
-        description: 'Wet Maatschappelijke Ondersteuning en voorzieningen.',
+        description: 'Maatschappelijke ondersteuning',
       },
       {
         title: 'Vluchtelingen',
-        description: 'Opvang en ondersteuning voor vluchtelingen.',
+        description: 'Opvang en integratie',
       },
       {
         title: 'Tijdelijke ondersteuning',
-        description: 'Korte termijn hulp en ondersteuning.',
+        description: 'Kortdurende hulp',
+      },
+      {
+        title: 'Jeugdzorg',
+        description: 'Ondersteuning voor gezinnen',
+      },
+      {
+        title: 'Schuldhulpverlening',
+        description: 'Hulp bij financiele problemen',
       },
     ],
   },
@@ -85,13 +117,13 @@ function CategoryDetail() {
   if (!data) {
     return (
       <main className="px-6 py-8">
-        <div className="mx-auto max-w-[1240px]">
-          <nav className="mb-6 text-sm">
+        <div className="mx-auto max-w-310">
+          <nav className="mb-6 text-sm" aria-label="Breadcrumb">
             <Link to="/" className="text-blue-600 hover:underline">
               Home
             </Link>
             <span className="mx-2 text-gray-400">›</span>
-            <span className="text-gray-600">Categorie niet gevonden</span>
+            <span className="text-gray-700" aria-current="page">Categorie niet gevonden</span>
           </nav>
           <h1 className="text-3xl font-bold text-gray-900">
             Categorie niet gevonden
@@ -106,14 +138,14 @@ function CategoryDetail() {
 
   return (
     <main className="px-6 py-8 bg-white">
-      <div className="mx-auto max-w-[1240px]">
+      <div className="mx-auto max-w-310">
 
-        <nav className="mb-6 text-sm">
+        <nav className="mb-6 text-sm" aria-label="Breadcrumb">
           <Link to="/" className="text-blue-600 hover:underline">
             Home
           </Link>
           <span className="mx-2 text-gray-400">›</span>
-          <span className="text-gray-600">{data.title}</span>
+          <span className="text-gray-700" aria-current="page">{data.title}</span>
         </nav>
 
         <header className="mb-12">
@@ -124,27 +156,19 @@ function CategoryDetail() {
         </header>
 
         {/* Items grid */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {data.items.map((item) => (
             <Link
               key={item.title}
               to={`/artikel/${category}/${item.title.toLowerCase().replace(/\s+/g, '-')}`}
-              className="group flex flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:border-blue-500 hover:shadow-md"
+              className="group flex flex-col rounded-lg border border-gray-200 bg-white p-4 transition-all hover:border-blue-500 hover:shadow-md"
             >
-              <div className="mb-4">
-                <h2 className="text-xl font-bold text-gray-900 group-hover:text-blue-600">
-                  {item.title}
-                </h2>
-              </div>
-              <p className="flex-grow text-sm text-gray-600">
+              <h2 className="mb-1 font-semibold text-gray-900 group-hover:text-blue-600">
+                {item.title}
+              </h2>
+              <p className="text-sm text-gray-600">
                 {item.description}
               </p>
-              <div className="mt-4 flex items-center text-sm font-medium text-blue-600">
-                <span>Meer informatie</span>
-                <span className="ml-2 transition-transform group-hover:translate-x-1">
-                  →
-                </span>
-              </div>
             </Link>
           ))}
         </div>
