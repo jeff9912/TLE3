@@ -9,7 +9,7 @@
 2026-03-09T12:36:22.180598Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\.prettierrc"
 2026-03-09T12:36:22.180613Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\components\\Footer.jsx"
 2026-03-09T12:36:22.180652Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\pages\\Article.jsx"
-2026-03-09T12:36:22.180664Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\pages\\WMOForm.jsx"
+2026-03-09T12:36:22.180664Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\pages\\WMOHelp.jsx"
 2026-03-09T12:36:22.180674Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\components\\RequestsDropdown.jsx"
 2026-03-09T12:36:22.180710Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\components\\Navbar.jsx"
 2026-03-09T12:36:22.180713Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\eslint.config.js"

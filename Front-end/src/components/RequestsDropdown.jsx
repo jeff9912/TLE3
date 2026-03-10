@@ -11,7 +11,7 @@ function RequestsDropdown({ onClose }) {
 
   const aanvragenItems = [
     { label: 'Vergunning aanvragen', path: '/vergunning' },
-    { label: 'WMO aanvragen', path: '/wmo-form' },
+      {label: 'WMO aanvragen', path: '/wmo-help'},
     { label: 'Documenten aanvragen (rijbewijs, paspoort, ID)', path: '/documenten' },
     { label: 'Subsidies aanvragen', path: '/subsidies' },
   ];

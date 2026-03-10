@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import WMOHelp from "./pages/WMOHelp";
 import WMOForm from "./pages/WMOForm";
 import CategoryDetail from "./pages/CategoryDetail";
 import AllTopics from "./pages/AllTopics";
@@ -22,10 +23,11 @@ function App() {
         <main id="main-content" className="grow" tabIndex={-1}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/wmo-form" element={<WMOForm />} />
+              <Route path="/wmo-help" element={<WMOHelp/>}/>
             <Route path="/alle-onderwerpen" element={<AllTopics />} />
             <Route path="/categorie/:category" element={<CategoryDetail />} />
             <Route path="/artikel/:category/:topic" element={<Article />} />
+              <Route path="/wmo-form" element={<WMOForm/>}/>
           </Routes>
         </main>
         <Footer />

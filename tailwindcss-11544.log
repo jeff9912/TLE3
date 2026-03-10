@@ -21,7 +21,7 @@
 2026-03-09T12:36:39.048192Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\tailwind.config.js"
 2026-03-09T12:36:39.048201Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\pages\\CategoryDetail.jsx"
 2026-03-09T12:36:39.048212Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\components\\Accordion.jsx"
-2026-03-09T12:36:39.048257Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\pages\\WMOForm.jsx"
+2026-03-09T12:36:39.048257Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\pages\\WMOHelp.jsx"
 2026-03-09T12:36:39.048276Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\pages\\Home.jsx"
 2026-03-09T12:36:39.048282Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\postcss.config.js"
 2026-03-09T12:36:39.048306Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\package.json"

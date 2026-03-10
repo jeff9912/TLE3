@@ -8,7 +8,7 @@
 2026-03-09T08:36:50.153121Z  INFO get_files:discover_sources:walk_synchronous: tailwindcss_oxide::scanner: exit
 2026-03-09T08:36:50.153946Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\components\\Accordion.jsx"
 2026-03-09T08:36:50.155090Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\package.json"
-2026-03-09T08:36:50.155450Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\pages\\WMOForm.jsx"
+2026-03-09T08:36:50.155450Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\pages\\WMOHelp.jsx"
 2026-03-09T08:36:50.165986Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\.prettierrc"
 2026-03-09T08:36:50.166811Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\main.jsx"
 2026-03-09T08:36:50.173948Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\jeffr\\OneDrive - Hogeschool Rotterdam\\documenten\\jaar2\\TLE3\\Front-end\\src\\components\\Footer.jsx"
