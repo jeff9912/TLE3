@@ -60,17 +60,26 @@ function Navbar() {
             </button>
           </li>
           <li>
-            <a href="/mijn-gemeente" className="hover:text-blue-700 transition-colors text-sm">
+            <a
+              href="/mijn-gemeente"
+              className="hover:text-blue-700 transition-colors text-sm"
+            >
               Mijn Gemeente
             </a>
           </li>
           <li>
-            <a href="/contact" className="hover:text-blue-700 transition-colors text-sm">
+            <a
+              href="/contact"
+              className="hover:text-blue-700 transition-colors text-sm"
+            >
               Contact opnemen
             </a>
           </li>
           <li>
-            <a href="/nieuws" className="hover:text-blue-700 transition-colors text-sm">
+            <a
+              href="/nieuws"
+              className="hover:text-blue-700 transition-colors text-sm"
+            >
               Nieuws
             </a>
           </li>
@@ -104,8 +113,15 @@ function Navbar() {
           </button>
 
           {/* Accessibility Dropdown */}
-          <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <button className="p-2 hover:bg-gray-100 rounded-md transition-colors" title="Toegankelijkheidsinstellingen">
+          <div
+            className="relative"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <button
+              className="p-2 hover:bg-gray-100 rounded-md transition-colors"
+              title="Toegankelijkheidsinstellingen"
+            >
               <svg
                 className="w-5 h-5 text-gray-600 hover:text-green-600"
                 fill="currentColor"
@@ -125,7 +141,11 @@ function Navbar() {
                       : 'hover:bg-gray-50 text-gray-700'
                   }`}
                 >
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <svg
+                    className="w-4 h-4"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                   </svg>
                   <span className="text-sm font-medium">Hoger Contrast</span>
@@ -139,7 +159,11 @@ function Navbar() {
                       : 'hover:bg-gray-50 text-gray-700'
                   }`}
                 >
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <svg
+                    className="w-4 h-4"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
                     <path d="M9 4v3h5v12h3V7h5V4H9zm8.5 13l-3.5 4h4.5v3h5v-3h4.5l-3.5-4h-7z" />
                   </svg>
                   <span className="text-sm font-medium">Groter Lettertype</span>
@@ -164,7 +188,10 @@ function Navbar() {
               />
             </svg>
           </button>
-          <button className="p-2 hover:bg-gray-100 rounded-md transition-colors">
+          <button
+            className="p-2 hover:bg-gray-100 rounded-md transition-colors"
+            onClick={() => navigate('/login')}
+          >
             <svg
               className="w-5 h-5 text-gray-600 hover:text-blue-600"
               fill="none"
@@ -182,7 +209,9 @@ function Navbar() {
         </div>
       </nav>
 
-      {showDropdown && <RequestsDropdown onClose={() => setShowDropdown(false)} />}
+      {showDropdown && (
+        <RequestsDropdown onClose={() => setShowDropdown(false)} />
+      )}
     </>
   );
 }

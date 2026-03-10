@@ -8,7 +8,6 @@ import CategoryDetail from './pages/CategoryDetail';
 import AllTopics from './pages/AllTopics';
 import Article from './pages/Article';
 import LoginPage from './pages/LoginPage.jsx';
-// import RegisterPage from './pages/RegisterPage.jsx';
 
 function App() {
   return (
@@ -22,8 +21,7 @@ function App() {
             <Route path="/alle-onderwerpen" element={<AllTopics />} />
             <Route path="/categorie/:category" element={<CategoryDetail />} />
             <Route path="/artikel/:category/:topic" element={<Article />} />
-            <Route path="/inlog" element={<LoginPage />} />
-            <Route path="/registreren" element={<RegisterPage />} />
+            <Route path="/login" element={<LoginPage />} />
           </Routes>
         </main>
         <Footer />
