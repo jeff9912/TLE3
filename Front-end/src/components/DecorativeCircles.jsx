@@ -73,16 +73,6 @@ export default function DecorativeCircles() {
           opacity: 0.6,
         }}
       ></div>
-      <div
-        className="fixed z-0"
-        style={{
-          bottom: '35vh',
-          right: '48vw',
-          width: '0.2vw',
-          height: '4vh',
-          backgroundColor: '#facc15',
-        }}
-      ></div>
     </>
   );
 }
