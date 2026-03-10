@@ -161,8 +161,7 @@ function Navbar() {
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
-                {/* icon hieroner tekenen */}
-                <path d="M12 2a2 2 0 100 4 2 2 0 000-4zm1 6h-2v6H9l-1 5h2l1-3h2l1 3h2l-1-5h-2V8z" />
+                <path d="M12 3a2.5 2.5 0 110 5 2.5 2.5 0 010-5zm-6 7a1 1 0 011-1h4v3h2V9h4a1 1 0 110 2h-3v10a1 1 0 11-2 0v-4h-2v4a1 1 0 11-2 0V11H7a1 1 0 01-1-1z" />
               </svg>
             </button>
 
@@ -175,13 +174,7 @@ function Navbar() {
                 >
                   <button
                     type="button"
-                    onClick={() => {
-                      setContrastMode((prev) => {
-                        const next = !prev;
-                        if (next) setLargeFontMode(false);
-                        return next;
-                      });
-                    }}
+                    onClick={() => setContrastMode((prev) => !prev)}
                     className={`w-full text-left px-4 py-3 flex items-center gap-2 transition-colors ${
                       contrastMode
                         ? 'bg-green-50 text-green-700 border-l-4 border-green-600'
@@ -202,13 +195,7 @@ function Navbar() {
 
                   <button
                     type="button"
-                    onClick={() => {
-                      setLargeFontMode((prev) => {
-                        const next = !prev;
-                        if (next) setContrastMode(false);
-                        return next;
-                      });
-                    }}
+                    onClick={() => setLargeFontMode((prev) => !prev)}
                     className={`w-full text-left px-4 py-3 flex items-center gap-2 transition-colors border-t border-gray-200 ${
                       largeFontMode
                         ? 'bg-green-50 text-green-700 border-l-4 border-green-600'

@@ -31,9 +31,6 @@ function RequestsDropdown({ onClose }) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="requests-title"
-        style={{
-          backgroundImage: 'linear-gradient(to bottom, rgba(255,255,255,1) 85%, rgba(255,255,255,0))',
-        }}
       >
         <div className="mx-auto max-w-7xl px-6 py-12">
           <button
