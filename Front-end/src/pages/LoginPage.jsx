@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
+import DecorativeCircles from '../components/DecorativeCircles.jsx';
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -51,7 +52,8 @@ const LoginPage = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen py-12">
-      <div className="bg-white border-2 border-blue-700 rounded-lg p-8 w-140 shadow-sm">
+      <DecorativeCircles />
+      <div className="bg-white border-2 border-blue-700 rounded-lg p-8 w-140 shadow-sm z-10">
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <div className="bg-blue-50 border border-gray-300 rounded px-3 py-2">
