@@ -42,7 +42,7 @@ const LoginPage = () => {
       if (!response.ok) {
         throw new Error('Inloggen mislukt. Controleer je gegevens.');
       }
-
+      //
       // const data = await response.json();
       // localStorage.setItem('token', data.token);
 
