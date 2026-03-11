@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/copilot.data.migration.agent.xml
+/.idea/copilot.data.migration.ask2agent.xml
+/.idea/copilot.data.migration.edit.xml
+/.idea/php.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
+
