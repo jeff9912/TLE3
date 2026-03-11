@@ -45,11 +45,11 @@ function Home() {
           <img
             src={heroBackground}
             alt="Parkeerzone bord"
-            className="h-117.5 w-full object-cover"
+            className="h-52 sm:h-72 lg:h-[470px] w-full object-cover"
           />
         </div>
 
-        <aside className="rounded-xl bg-gray-100 px-8 py-6">
+        <aside className="rounded-xl bg-gray-100 px-4 sm:px-8 py-6">
           <h2 className="mb-4 text-[30px] font-semibold text-gray-900">
             Relevant voor jou
           </h2>
@@ -71,7 +71,7 @@ function Home() {
 
       <section className="mx-auto max-w-310">
 
-        <div className="mb-12 flex flex-col gap-6 px-8 py-6 md:flex-row md:items-center">
+        <div className="mb-12 flex flex-col gap-6 px-4 sm:px-8 py-6 md:flex-row md:items-center">
           <h2 className="text-3xl font-bold text-gray-900">
             Meest gezocht
           </h2>

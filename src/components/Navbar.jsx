@@ -57,9 +57,12 @@ function Navbar() {
   // Requests dropdown
   const [showDropdown, setShowDropdown] = useState(false);
 
+  // Mobile menu
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <>
-      <nav className="bg-white border-b border-gray-300 px-12 py-4 flex justify-between items-center gap-8" aria-label="Hoofdnavigatie">
+      <nav className="bg-white border-b border-gray-300 px-4 lg:px-12 py-4 flex justify-between items-center gap-2 lg:gap-8" aria-label="Hoofdnavigatie">
         <div className="shrink-0">
           <button
             type="button"
@@ -75,7 +78,7 @@ function Navbar() {
           </button>
         </div>
 
-        <ul className="flex gap-10 text-gray-700 font-medium flex-1 ml-8">
+        <ul className="hidden lg:flex gap-10 text-gray-700 font-medium flex-1 ml-8">
           <li>
             <button
               onClick={() => navigate('/')}
@@ -110,11 +113,11 @@ function Navbar() {
           </li>
         </ul>
 
-        <div className="flex items-center gap-4 shrink-0">
+        <div className="flex items-center gap-1 lg:gap-4 shrink-0">
           <button
             type="button"
             onClick={() => setShowDropdown(true)}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md font-semibold flex items-center gap-1 transition-colors text-sm"
+            className="hidden lg:flex bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md font-semibold items-center gap-1 transition-colors text-sm"
           >
             Aanvragen of regelen
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -264,8 +267,70 @@ function Navbar() {
               />
             </svg>
           </button>
+
+          {/* Hamburger button - mobile only */}
+          <button
+            type="button"
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+            className="lg:hidden p-2 hover:bg-gray-100 rounded-md transition-colors"
+            aria-label={isMobileMenuOpen ? 'Menu sluiten' : 'Menu openen'}
+            aria-expanded={isMobileMenuOpen}
+          >
+            {isMobileMenuOpen ? (
+              <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
         </div>
       </nav>
+
+      {/* Mobile menu */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden bg-white border-b border-gray-200 shadow-sm" aria-label="Mobiel menu">
+          <ul className="flex flex-col px-4 py-3 gap-1 text-gray-700 font-medium border-b border-gray-100">
+            <li>
+              <button
+                onClick={() => { navigate('/'); setIsMobileMenuOpen(false); }}
+                className="w-full text-left px-3 py-2 rounded-md hover:bg-gray-50 hover:text-blue-700 transition-colors text-sm"
+              >
+                Home
+              </button>
+            </li>
+            <li>
+              <a href="/mijn-gemeente" className="block px-3 py-2 rounded-md hover:bg-gray-50 hover:text-blue-700 transition-colors text-sm">
+                Mijn Gemeente
+              </a>
+            </li>
+            <li>
+              <a href="/contact" className="block px-3 py-2 rounded-md hover:bg-gray-50 hover:text-blue-700 transition-colors text-sm">
+                Contact opnemen
+              </a>
+            </li>
+            <li>
+              <a href="/nieuws" className="block px-3 py-2 rounded-md hover:bg-gray-50 hover:text-blue-700 transition-colors text-sm">
+                Nieuws
+              </a>
+            </li>
+          </ul>
+          <div className="px-4 py-3">
+            <button
+              type="button"
+              onClick={() => { setShowDropdown(true); setIsMobileMenuOpen(false); }}
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md font-semibold flex items-center justify-center gap-2 transition-colors text-sm"
+            >
+              Aanvragen of regelen
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M3 5a1 1 0 011-1h12a1 1 0 011 1v2H3V5zm0 4h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
 
       {showDropdown && (
         <RequestsDropdown onClose={() => setShowDropdown(false)} />
