@@ -41,7 +41,7 @@ export default function DecorativeCircles() {
         className="fixed z-0"
         style={{
           bottom: '14vh',
-          right: '8vw',
+          right: '2vw',
           width: '9vw',
           height: '9vw',
           borderRadius: '50%',
