@@ -59,7 +59,10 @@ function Navbar() {
 
   return (
     <>
-      <nav className="bg-white border-b border-gray-300 px-12 py-4 flex justify-between items-center gap-8" aria-label="Hoofdnavigatie">
+      <nav
+        className="bg-white border-b border-gray-300 px-12 py-4 flex justify-between items-center gap-8"
+        aria-label="Hoofdnavigatie"
+      >
         <div className="shrink-0">
           <button
             type="button"
@@ -122,7 +125,11 @@ function Navbar() {
             </svg>
           </button>
 
-          <button type="button" aria-label="Zoeken" className="p-2 hover:bg-gray-100 rounded-md transition-colors">
+          <button
+            type="button"
+            aria-label="Zoeken"
+            className="p-2 hover:bg-gray-100 rounded-md transition-colors"
+          >
             <svg
               className="w-5 h-5 text-gray-600 hover:text-blue-600"
               fill="none"
@@ -234,7 +241,11 @@ function Navbar() {
           </div>
 
           {/* Other buttons */}
-          <button type="button" aria-label="E-mail" className="p-2 hover:bg-gray-100 rounded-md transition-colors">
+          <button
+            type="button"
+            aria-label="E-mail"
+            className="p-2 hover:bg-gray-100 rounded-md transition-colors"
+          >
             <svg
               className="w-5 h-5 text-gray-600 hover:text-blue-600"
               fill="none"
@@ -249,7 +260,12 @@ function Navbar() {
               />
             </svg>
           </button>
-          <button type="button" aria-label="Account" className="p-2 hover:bg-gray-100 rounded-md transition-colors">
+          <button
+            type="button"
+            aria-label="Account"
+            className="p-2 hover:bg-gray-100 rounded-md transition-colors"
+            onClick={() => navigate('/login')}
+          >
             <svg
               className="w-5 h-5 text-gray-600 hover:text-blue-600"
               fill="none"
