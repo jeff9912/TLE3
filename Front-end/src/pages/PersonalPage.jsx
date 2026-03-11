@@ -16,13 +16,12 @@ function PersonalPage() {
   const [personalData, setPersonalData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [openDropdown, setOpenDropdown] = useState(null); // Houdt bij welke dropdown open is
+  const [openDropdown, setOpenDropdown] = useState(null);
 
   useEffect(() => {
     const fetchPersonalData = async () => {
       try {
-        // VERVANG DEZE URL met je daadwerkelijke API-eindpunt voor persoonlijke gegevens
-        const response = await fetch('');
+        const response = await fetch(' http://145.24.237.215:8000/user/:id');
 
         if (!response.ok) {
           throw new Error('Netwerk response was niet ok!');
