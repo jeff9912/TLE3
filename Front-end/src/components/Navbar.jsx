@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import zuidplasLogo from '../assets/img/zuidplas2.png';
 import RequestsDropdown from './RequestsDropdown';
@@ -11,6 +11,10 @@ function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [contrastMode, setContrastMode] = useState(false);
   const [largeFontMode, setLargeFontMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.localStorage.getItem('darkMode') === 'true';
+  });
   const [dropdownTimeoutId, setDropdownTimeoutId] = useState(null);
 
   useEffect(() => {
@@ -23,6 +27,14 @@ function Navbar() {
     document.documentElement.style.fontSize = fontSize;
     document.documentElement.style.filter = `contrast(${contrast})`;
   }, [contrastMode, largeFontMode]);
+
+  useLayoutEffect(() => {
+    document.documentElement.classList.toggle('dark-mode', darkMode);
+  }, [darkMode]);
+
+  useEffect(() => {
+    window.localStorage.setItem('darkMode', String(darkMode));
+  }, [darkMode]);
 
   const handleMouseEnter = () => {
     if (dropdownTimeoutId) clearTimeout(dropdownTimeoutId);
@@ -59,7 +71,10 @@ function Navbar() {
 
   return (
     <>
-      <nav className="bg-white border-b border-gray-300 px-12 py-4 flex justify-between items-center gap-8" aria-label="Hoofdnavigatie">
+      <nav
+        className="bg-white border-b border-gray-300 px-12 py-4 flex justify-between items-center gap-8"
+        aria-label="Hoofdnavigatie"
+      >
         <div className="shrink-0">
           <button
             type="button"
@@ -122,7 +137,11 @@ function Navbar() {
             </svg>
           </button>
 
-          <button type="button" aria-label="Zoeken" className="p-2 hover:bg-gray-100 rounded-md transition-colors">
+          <button
+            type="button"
+            aria-label="Zoeken"
+            className="p-2 hover:bg-gray-100 rounded-md transition-colors"
+          >
             <svg
               className="w-5 h-5 text-gray-600 hover:text-blue-600"
               fill="none"
@@ -161,8 +180,7 @@ function Navbar() {
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
-                {/* icon hieroner tekenen */}
-                <path d="M12 2a2 2 0 100 4 2 2 0 000-4zm1 6h-2v6H9l-1 5h2l1-3h2l1 3h2l-1-5h-2V8z" />
+                <path d="M12 3a2.5 2.5 0 110 5 2.5 2.5 0 010-5zm-6 7a1 1 0 011-1h4v3h2V9h4a1 1 0 110 2h-3v10a1 1 0 11-2 0v-4h-2v4a1 1 0 11-2 0V11H7a1 1 0 01-1-1z" />
               </svg>
             </button>
 
@@ -175,13 +193,7 @@ function Navbar() {
                 >
                   <button
                     type="button"
-                    onClick={() => {
-                      setContrastMode((prev) => {
-                        const next = !prev;
-                        if (next) setLargeFontMode(false);
-                        return next;
-                      });
-                    }}
+                    onClick={() => setContrastMode((prev) => !prev)}
                     className={`w-full text-left px-4 py-3 flex items-center gap-2 transition-colors ${
                       contrastMode
                         ? 'bg-green-50 text-green-700 border-l-4 border-green-600'
@@ -202,13 +214,7 @@ function Navbar() {
 
                   <button
                     type="button"
-                    onClick={() => {
-                      setLargeFontMode((prev) => {
-                        const next = !prev;
-                        if (next) setContrastMode(false);
-                        return next;
-                      });
-                    }}
+                    onClick={() => setLargeFontMode((prev) => !prev)}
                     className={`w-full text-left px-4 py-3 flex items-center gap-2 transition-colors border-t border-gray-200 ${
                       largeFontMode
                         ? 'bg-green-50 text-green-700 border-l-4 border-green-600'
@@ -228,13 +234,38 @@ function Navbar() {
                       Groter Lettertype
                     </span>
                   </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setDarkMode((prev) => !prev)}
+                    className={`w-full text-left px-4 py-3 flex items-center gap-2 transition-colors border-t border-gray-200 ${
+                      darkMode
+                        ? 'bg-green-50 text-green-700 border-l-4 border-green-600'
+                        : 'hover:bg-gray-50 text-gray-700'
+                    }`}
+                    role="menuitemcheckbox"
+                    aria-checked={darkMode}
+                  >
+                    <svg
+                      className="w-4 h-4"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 2a1 1 0 011 1v1.5a1 1 0 11-2 0V3a1 1 0 011-1zm0 16a1 1 0 011 1V21a1 1 0 11-2 0v-2a1 1 0 011-1zm10-7a1 1 0 110 2h-1.5a1 1 0 110-2H22zM4.5 11a1 1 0 110 2H3a1 1 0 110-2h1.5zm13.16-5.66a1 1 0 011.42 1.42l-1.06 1.06a1 1 0 01-1.42-1.42l1.06-1.06zM6.98 16.52a1 1 0 011.42 1.42l-1.06 1.06a1 1 0 11-1.42-1.42l1.06-1.06zM18.72 18.98a1 1 0 01-1.42 0l-1.06-1.06a1 1 0 111.42-1.42l1.06 1.06a1 1 0 010 1.42zM7.34 7.34a1 1 0 01-1.42 0L4.86 6.28A1 1 0 116.28 4.86l1.06 1.06a1 1 0 010 1.42zM12 7a5 5 0 100 10 5 5 0 000-10z" />
+                    </svg>
+                    <span className="text-sm font-medium">Donker/Licht</span>
+                  </button>
                 </div>
               </div>
             )}
           </div>
 
           {/* Other buttons */}
-          <button type="button" aria-label="E-mail" className="p-2 hover:bg-gray-100 rounded-md transition-colors">
+          <button
+            type="button"
+            aria-label="E-mail"
+            className="p-2 hover:bg-gray-100 rounded-md transition-colors"
+          >
             <svg
               className="w-5 h-5 text-gray-600 hover:text-blue-600"
               fill="none"
@@ -249,7 +280,12 @@ function Navbar() {
               />
             </svg>
           </button>
-          <button type="button" aria-label="Account" className="p-2 hover:bg-gray-100 rounded-md transition-colors">
+          <button
+            type="button"
+            aria-label="Account"
+            className="p-2 hover:bg-gray-100 rounded-md transition-colors"
+            onClick={() => navigate('/login')}
+          >
             <svg
               className="w-5 h-5 text-gray-600 hover:text-blue-600"
               fill="none"

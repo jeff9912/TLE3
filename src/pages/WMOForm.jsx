@@ -139,7 +139,7 @@ function WMOForm() {
       <section className="bg-blue-50 border-b border-gray-300">
         <div className="mx-auto max-w-3xl px-6 py-12">
           <div className="text-center">
-            <h1 className="text-5xl font-bold text-gray-900 mb-2">
+            <h1 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-2">
               WMO
             </h1>
             <h2 className="text-2xl text-gray-900 font-medium mb-6">
