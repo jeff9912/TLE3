@@ -26,20 +26,17 @@ function RequestsDropdown({ onClose }) {
   return (
     <div className="fixed inset-0 bg-black/20 z-40" onClick={onClose}>
       <div
-        className="absolute top-0 left-0 right-0 bg-white shadow-lg z-50"
+        className="absolute top-0 left-0 right-0 bg-white shadow-lg z-50 requests-dropdown-gradient"
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
         aria-labelledby="requests-title"
-        style={{
-          backgroundImage: 'linear-gradient(to bottom, rgba(255,255,255,1) 85%, rgba(255,255,255,0))',
-        }}
       >
         <div className="mx-auto max-w-7xl px-6 py-12">
           <button
             type="button"
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 mb-6"
+            className="text-gray-600 hover:text-gray-900 mb-6"
             aria-label="Sluit venster"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
