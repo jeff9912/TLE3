@@ -100,7 +100,7 @@ function AllTopics() {
 
         {/* Header */}
         <header className="mb-12">
-          <h1 className="mb-4 text-4xl font-bold text-gray-900">
+          <h1 className="mb-4 text-3xl sm:text-4xl font-bold text-gray-900">
             Alle onderwerpen
           </h1>
           <p className="text-lg text-gray-600">
@@ -113,7 +113,7 @@ function AllTopics() {
           {allCategories.map((category) => (
             <section
               key={category.title}
-              className="rounded-xl bg-white p-8 shadow-sm"
+              className="rounded-xl bg-white p-4 sm:p-8 shadow-sm"
             >
               <div className="mb-6">
                 <div>

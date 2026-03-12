@@ -168,7 +168,7 @@ function Article() {
             <span className="text-gray-500">•</span>
             <span className="text-gray-600">Laatst bijgewerkt: {articleData.lastUpdated}</span>
           </div>
-          <h1 className="mb-3 text-4xl font-bold text-gray-900 capitalize">
+          <h1 className="mb-3 text-2xl sm:text-4xl font-bold text-gray-900 capitalize">
             {articleData.title}
           </h1>
         </header>
