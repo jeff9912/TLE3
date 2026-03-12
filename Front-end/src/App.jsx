@@ -9,16 +9,7 @@ import AllTopics from './pages/AllTopics';
 import Article from './pages/Article';
 import LoginPage from './pages/LoginPage.jsx';
 import PersonalPage from './pages/PersonalPage.jsx';
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Home from "./pages/Home";
 import WMOHelp from "./pages/WMOHelp";
-import WMOForm from "./pages/WMOForm";
-import CategoryDetail from "./pages/CategoryDetail";
-import AllTopics from "./pages/AllTopics";
-import Article from "./pages/Article";
 
 function App() {
   return (

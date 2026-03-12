@@ -101,7 +101,7 @@ function Navbar() {
           </li>
           <li>
             <a
-              href="/mijn-gemeente"
+              href="/persoonlijke-gegevens"
               className="hover:text-blue-700 transition-colors text-sm"
             >
               Mijn Gemeente
