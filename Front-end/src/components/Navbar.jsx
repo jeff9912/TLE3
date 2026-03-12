@@ -193,9 +193,7 @@ function Navbar() {
                 >
                   <button
                     type="button"
-                    onClick={() => {
-                      setContrastMode((prev) => !prev);
-                    }}
+                    onClick={() => setContrastMode((prev) => !prev)}
                     className={`w-full text-left px-4 py-3 flex items-center gap-2 transition-colors ${
                       contrastMode
                         ? 'bg-green-50 text-green-700 border-l-4 border-green-600'
@@ -216,9 +214,7 @@ function Navbar() {
 
                   <button
                     type="button"
-                    onClick={() => {
-                      setLargeFontMode((prev) => !prev);
-                    }}
+                    onClick={() => setLargeFontMode((prev) => !prev)}
                     className={`w-full text-left px-4 py-3 flex items-center gap-2 transition-colors border-t border-gray-200 ${
                       largeFontMode
                         ? 'bg-green-50 text-green-700 border-l-4 border-green-600'
