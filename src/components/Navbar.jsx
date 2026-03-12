@@ -19,13 +19,11 @@ function Navbar() {
 
   useEffect(() => {
     let fontSize = '16px';
-    let contrast = '1';
 
     if (largeFontMode) fontSize = '18px';
-    if (contrastMode) contrast = '1.5';
 
     document.documentElement.style.fontSize = fontSize;
-    document.documentElement.style.filter = `contrast(${contrast})`;
+    document.documentElement.style.filter = contrastMode ? 'grayscale(1)' : 'none';
   }, [contrastMode, largeFontMode]);
 
   useLayoutEffect(() => {
@@ -101,10 +99,10 @@ function Navbar() {
           </li>
           <li>
             <a
-              href="/mijn-gemeente"
+              href="/persoonlijke-gegevens"
               className="hover:text-blue-700 transition-colors text-sm"
             >
-              Mijn Gemeente
+              Mijn Gegevens
             </a>
           </li>
           <li>
@@ -209,7 +207,7 @@ function Navbar() {
                     >
                       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                     </svg>
-                    <span className="text-sm font-medium">Hoger Contrast</span>
+                    <span className="text-sm font-medium">Hoger contrast</span>
                   </button>
 
                   <button

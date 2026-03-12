@@ -1,285 +1,362 @@
-import React from 'react';
-import Accordion from '../components/Accordion';
+import React, { useEffect, useState } from "react";
 
-function WMOForm() {
-  const accordionItems = [
-    {
-      title: 'Wanneer hulp via WMO?',
-      content: (
-        <div className="space-y-4">
-          <p className="text-sm leading-relaxed">
-            U kunt hulp via de WMO (Wet Maatschappelijke Ondersteuning) krijgen
-            wanneer u door een beperking, ziekte of ouderdom moeite heeft om
-            zelfstandig te functioneren in het dagelijks leven. Het doel van de
-            WMO is om ervoor te zorgen dat u zo lang mogelijk zelfstandig thuis
-            blijven wonen en actief kunt deelnemen aan de samenleving.
-          </p>
-          <p className="font-semibold text-sm">
-            U komt mogelijk in aanmerking voor ondersteuning wanneer:
-          </p>
-          <ul className="list-disc list-inside space-y-2 text-sm">
-            <li>U het huishouden niet meer zelfstandig kunt doen</li>
-            <li>
-              U moeite heeft met dagelijkse activiteiten, zoals boodschappen
-              doen of administratie
-            </li>
-            <li>
-              U begeleiding nodig heeft bij het aanbrengen van structuur in uw
-              dag
-            </li>
-            <li>
-              Uw woning aangepast moet worden (bijvoorbeeld met een traplift of
-              aangepaste badkamer)
-            </li>
-            <li>U aanpast vervoer nodig heeft</li>
-            <li>
-              U zonder ondersteuning niet zelfstandig thuis kunt blijven wonen
-            </li>
-          </ul>
-          <p className="text-sm text-gray-700 italic mt-4">
-            De gemeente kijkt altijd eerst naar wat u zelf nog kunt en of mensen
-            in uw omgeving kunnen helpen. Daarna bepalen we samen of en hoe de
-            gemeente ondersteuning kan bieden.
-          </p>
-        </div>
-      ),
-    },
-    {
-      title: 'Waarvoor kan je terecht bij de gemeente?',
-      content: (
-        <div className="space-y-4">
-          <p className="text-sm leading-relaxed">
-            Als inwoner kun je met zorg- en ondersteuningsvragen bij Stichting
-            ZO! terecht. De gemeente is vooral verantwoordelijk voor de
-            administratie en de financiële afwikkeling als er een
-            maatwerk­voorziening is aangevraagd. Gemeente Zuidplas blijft als de
-            declaraties en de factu­ren van zorgaanbieders verwerken en
-            afhandelen. Voor alle andere inhoudelijke vragen die over hulp en
-            ondersteuning gaan kun je bij Stichting ZO! terecht. De beschikking
-            wordt door de gemeente opgesteld, daarmee blijft het college van
-            burgemeester en wethouders verantwoordelijk voor het besluit. Mocht
-            je bezwaar hebben tegen het besluit, ga dan naar de pagina 'Bezwaar
-            maken'.
-          </p>
-        </div>
-      ),
-    },
-    {
-      title: 'WMO aanvragen bij Stichting ZO!',
-      content: (
-        <div className="space-y-6">
-          <div>
-            <h4 className="font-bold text-gray-900 mb-3">Stichting ZO!</h4>
-            <p className="text-sm leading-relaxed text-gray-700 mb-3">
-              Stichting ZO! is er voor iedere inwoner van gemeente Zuidplas die
-              een vraag heeft over welzijn en zorg. Bij Stichting ZO! kun je
-              terecht voor alle vragen en zorgen over geldzaken, wonen, school,
-              (mantel)zorg, jeugdhulp, gezin/relatie, inburgering en ouder
-              worden. Daarnaast kun je er terecht voor informatie rond
-              vrijwilligerswerk (www.stzo.nl/vrijwilligerswerk), voor inzet in
-              jouw buurt (www.stzo.nl/zuidplasverbindt) voor meerdoen aan veel
-              verschillende activiteiten voor alle leeftijden
-              (www.stzo.nl/activiteiten).
-            </p>
-          </div>
+export default function MultiStepForm() {
+    const [step, setStep] = useState(1);
 
-          <div className="bg-blue-50 border border-blue-300 p-4 rounded">
-            <h5 className="font-bold text-gray-900 mb-2">
-              Wat is Stichting ZO!
-            </h5>
-            <p className="text-sm text-gray-700">
-              Makkelijk en snel toegang tot zorg, welzijn en ondersteuning. Dat
-              is het doel van Stichting ZO! Sinds 2021 is ZO! de plek waar
-              ervaring en kennis in de gemeente Zuidplas op één plek samenkomt.
-              ZO! gaat uit van samenwerking en van eigen kracht. Tijdens onze
-              activiteiten en diensten staan ontmoeten, ontdekken, omarmen en
-              ondersteunen centraal.
-            </p>
-          </div>
+    const [formData, setFormData] = useState({
+        naam: "",
+        email: "",
+        straat: "",
+        postcode: "",
+        question: "",
+        description: ""
+    });
 
-          <div className="bg-blue-50 border border-blue-300 p-4 rounded">
-            <h5 className="font-bold text-gray-900 mb-2">Zovoerelkaar</h5>
-            <p className="text-sm text-gray-700 mb-2">
-              ZO! is ook de initiatiefnemer van de website www.zovoerelkaar.nl.
-              Dit is het digitale dorpsplein van Zuidplas waar iedereen onder
-              meer berichten, activiteiten en vrijwilligerswerk kan plaatsen. Er
-              is een nauwe samenwerking tussen Stichting ZO! en de gemeente
-              Zuidplas.
-            </p>
-            <p className="text-sm text-gray-700">
-              <span className="font-semibold">
-                Bekijk hier ook de flyer in pdf format over Stichting ZO!
-              </span>
-            </p>
-          </div>
+    const [inquiryTypes, setInquiryTypes] = useState([]);
+    const [selectedOption, setSelectedOption] = useState("");
+    const [loadingTypes, setLoadingTypes] = useState(true);
+    const [submitting, setSubmitting] = useState(false);
+    const [resultMessage, setResultMessage] = useState("");
 
-          <button
-            onClick={() =>
-              (window.location.href = 'https://www.stzo.nl/wmo-loket')
+    const USER_ID = "69b157e7c5851af11eca54de";
+    const API_BASE_URL = "http://127.0.0.1:8000/api";
+
+    const nextStep = () => {
+        setStep((prev) => prev + 1);
+    };
+
+    const prevStep = () => {
+        setStep((prev) => prev - 1);
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
+    useEffect(() => {
+        async function fetchInquiryTypes() {
+            try {
+                const response = await fetch(`http://145.24.237.215:8000/api/inquiry-types`, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error("Kon inquiry types niet ophalen");
+                }
+
+                const data = await response.json();
+                setInquiryTypes(data);
+            } catch (error) {
+                console.error(error);
+                setResultMessage("Fout bij het ophalen van de aanvraagtypes.");
+            } finally {
+                setLoadingTypes(false);
             }
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-md transition-colors flex items-center justify-center gap-2"
-          >
-            WMO melding doen
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-              />
-            </svg>
-          </button>
+        }
 
-          <div className="bg-blue-50 border border-blue-300 p-4 rounded">
-            <h5 className="font-bold text-gray-900 mb-3">
-              Wat regel je nog meer via Stichting ZO!
-            </h5>
-            <p className="text-sm text-gray-700 mb-3">
-              Je kunt er terecht voor je informatie over vrijwilligerswerk, voor
-              inzet in jouw buurt en voor meerdoen aan veel verschillende
-              activiteiten voor alle leeftijden. Daarnaast kun je er terecht
-              voor Zorg en hulp, onder andere:
-            </p>
-            <ul className="text-sm text-gray-700 space-y-1 mb-4">
-              <li>
-                <span className="underline">Jeugdhulp</span>
-              </li>
-              <li>
-                <span className="underline">Jeugdgezondheidszorg</span>
-              </li>
-              <li>
-                <span className="underline">
-                  Inburgeren (civic integration programme)
-                </span>
-              </li>
-            </ul>
-            <p className="text-sm text-gray-700 mb-3">
-              Geldzaken (kijk ook op de pagina 'Geldzaken bij Stichting ZO!'),
-              onder andere:
-            </p>
-            <ul className="text-sm text-gray-700 space-y-1 mb-4">
-              <li>
-                <span className="underline">Budgetmaatjes</span>
-              </li>
-              <li>
-                <span className="underline">De sociaal raadsvrouw</span>
-              </li>
-              <li>
-                <span className="underline">De Postkamer</span>
-              </li>
-              <li>
-                <span className="underline">Beginnende schulden</span>
-              </li>
-              <li>
-                <span className="underline">Kindpakket</span>
-              </li>
-            </ul>
-            <p className="text-sm text-gray-700 font-semibold mb-3">
-              Vrijwilligerswerk:
-            </p>
-            <ul className="text-sm text-gray-700 space-y-1 mb-4">
-              <li>
-                <span className="underline">Vrijwilligerswerk</span>
-              </li>
-              <li>
-                <span className="underline">Vrijwilligersverzekering</span>
-              </li>
-              <li>
-                <span className="underline">Vrijwilligerswaardering</span>
-              </li>
-              <li>
-                <span className="underline">
-                  Vrijwilligers Informatie Punt (VIP)
-                </span>
-              </li>
-              <li>
-                <span className="underline">
-                  Rechten en plichten van vrijwilligers
-                </span>
-              </li>
-            </ul>
-            <p className="text-sm text-gray-700">
-              Daarnaast kun je hier terecht voor alle informatie rond
-              vrijwilligerswerk, voor inzet in jouw buurt en voor meerdoen aan
-              veel verschillende activiteiten voor alle leeftijden.
-            </p>
-          </div>
+        fetchInquiryTypes();
+    }, []);
 
-          <button
-            onClick={() => window.open('https://www.stzo.nl', '_blank')}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-md transition-colors flex items-center justify-center gap-2"
-          >
-            www.stzo.nl
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-              />
-            </svg>
-          </button>
+    const handleSubmit = async () => {
+        if (!selectedOption) {
+            setResultMessage("Kies eerst een type aanvraag.");
+            return;
+        }
 
-          <div className="bg-blue-50 border border-blue-300 p-4 rounded">
-            <h5 className="font-bold text-gray-900 mb-2">
-              Vragen of meer informatie
-            </h5>
-            <p className="text-sm text-gray-700 mb-3">
-              Voor meer informatie of vragen kun je contact opnemen met de
-              medewerkers van Stichting ZO!
-            </p>
-            <ul className="text-sm text-gray-700 space-y-1">
-              <li>
-                (0180) 310 050 (bereikbaar op werkdagen tussen 08.30 uur en
-                16.30 uur)
-              </li>
-              <li>
-                <span className="underline">Info@stzo.nl</span>
-              </li>
-            </ul>
-          </div>
+        setSubmitting(true);
+        setResultMessage("");
+
+        const payload = {
+            user_id: USER_ID,
+            type_id: selectedOption,
+            created_at: new Date().toISOString(),
+            content: {
+                naam: formData.naam,
+                email: formData.email,
+                straat: formData.straat,
+                postcode: formData.postcode,
+                beschrijving: formData.description
+            },
+            status: "OPEN",
+            question: formData.question
+        };
+
+        try {
+            const response = await fetch(`http://145.24.237.215:8000/api/inquiry`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.message || "Er ging iets mis bij het versturen.");
+            }
+
+            setResultMessage("Uw aanvraag is succesvol verzonden.");
+            console.log("Inquiry response:", data);
+        } catch (error) {
+            console.error(error);
+            setResultMessage(error.message);
+        } finally {
+            setSubmitting(false);
+        }
+    };
+
+    return (
+        <div className="min-h-screen bg-gray-200 flex flex-col items-center">
+
+            {/* HEADER SECTION */}
+            <div className="w-full bg-blue-200 py-12 px-6 shadow-md rounded-b-xl mb-12">
+                <h1 className="text-3xl font-semibold text-center mb-2">
+                    WMO-aanvragen
+                </h1>
+
+                <p className="text-center text-gray-700 mb-10">
+                    Wet maatschappelijke ondersteuning
+                </p>
+
+                {/* TIMELINE */}
+                <div className="max-w-4xl mx-auto">
+
+                    <div className="relative flex items-center justify-between">
+
+                        <div className="absolute top-1/2 left-4 right-4 h-2 bg-blue-800 -translate-y-1/2"></div>
+
+                        {[1,2,3,4,5].map((s) => (
+                            <div
+                                key={s}
+                                className={`relative z-10 w-8 h-8 rounded-full border-4
+                                    ${step === s
+                                    ? "bg-red-500 border-red-500"
+                                    : step > s
+                                        ? "bg-blue-800 border-blue-800"
+                                        : "bg-white border-blue-800"
+                                }`}
+                            />
+                        ))}
+
+                    </div>
+
+                    <p className="text-center text-gray-700 mt-4">
+                        Stap {step} van 5
+                    </p>
+
+                </div>
+
+            </div>
+
+            {/* FORM CONTAINER */}
+            <div className="bg-white border-4 border-blue-800 rounded-xl shadow-xl w-full max-w-5xl p-16 mb-20 mx-6 h-auto">
+
+                {resultMessage && (
+                    <div className="mb-4 p-3 rounded bg-gray-100 text-sm text-gray-700">
+                        {resultMessage}
+                    </div>
+                )}
+
+                {step === 1 && (
+                    <div>
+                        <h2 className="text-xl mb-4">Persoonlijke informatie</h2>
+
+                        <input
+                            type="text"
+                            name="naam"
+                            placeholder="Naam"
+                            value={formData.naam}
+                            onChange={handleChange}
+                            className="border p-2 w-full mb-3"
+                        />
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="border p-2 w-full"
+                        />
+
+                        <button
+                            onClick={nextStep}
+                            className="mt-6 bg-blue-600 text-white px-4 py-2 rounded"
+                        >
+                            Volgende
+                        </button>
+                    </div>
+                )}
+
+                {step === 2 && (
+                    <div>
+                        <h2 className="text-xl mb-4">Adres informatie</h2>
+
+                        <input
+                            type="text"
+                            name="straat"
+                            placeholder="Straat"
+                            value={formData.straat}
+                            onChange={handleChange}
+                            className="border p-2 w-full mb-3"
+                        />
+
+                        <input
+                            type="text"
+                            name="postcode"
+                            placeholder="Postcode"
+                            value={formData.postcode}
+                            onChange={handleChange}
+                            className="border p-2 w-full"
+                        />
+
+                        <div className="flex justify-between mt-6">
+                            <button
+                                onClick={prevStep}
+                                className="bg-gray-400 text-white px-4 py-2 rounded"
+                            >
+                                Vorige
+                            </button>
+
+                            <button
+                                onClick={nextStep}
+                                className="bg-blue-600 text-white px-4 py-2 rounded"
+                            >
+                                Volgende
+                            </button>
+                        </div>
+                    </div>
+                )}
+
+                {step === 3 && (
+                    <div>
+                        <h2 className="text-xl mb-6">Kies een aanvraagtype</h2>
+
+                        {loadingTypes ? (
+                            <p>Aanvraagtypes laden...</p>
+                        ) : (
+                            <div className="grid gap-3 mb-6">
+                                {inquiryTypes.map((type) => (
+                                    <label
+                                        key={type.id || type._id}
+                                        onClick={() => setSelectedOption(type.id || type._id)}
+                                        className={`border rounded p-3 cursor-pointer ${
+                                            selectedOption === (type.id || type._id)
+                                                ? "border-blue-600 bg-blue-50"
+                                                : "border-gray-300"
+                                        }`}
+                                    >
+                                        <div className="font-medium">{type.name}</div>
+                                        {type.description && (
+                                            <div className="text-sm text-gray-600 mt-1">
+                                                {type.description}
+                                            </div>
+                                        )}
+                                    </label>
+                                ))}
+                            </div>
+                        )}
+
+                        <div className="flex justify-between mt-6">
+                            <button
+                                onClick={prevStep}
+                                className="bg-gray-400 text-white px-4 py-2 rounded"
+                            >
+                                Vorige
+                            </button>
+
+                            <button
+                                onClick={nextStep}
+                                className="bg-blue-600 text-white px-4 py-2 rounded"
+                            >
+                                Volgende
+                            </button>
+                        </div>
+                    </div>
+                )}
+
+                {step === 4 && (
+                    <div>
+                        <h2 className="text-xl mb-4">Uw vraag</h2>
+
+                        <input
+                            type="text"
+                            name="question"
+                            placeholder="Korte vraag"
+                            value={formData.question}
+                            onChange={handleChange}
+                            className="border p-2 w-full mb-3"
+                        />
+
+                        <textarea
+                            name="description"
+                            placeholder="Beschrijf uw situatie"
+                            value={formData.description}
+                            onChange={handleChange}
+                            className="border p-2 w-full"
+                            rows={6}
+                        />
+
+                        <div className="flex justify-between mt-6">
+                            <button
+                                onClick={prevStep}
+                                className="bg-gray-400 text-white px-4 py-2 rounded"
+                            >
+                                Vorige
+                            </button>
+
+                            <button
+                                onClick={nextStep}
+                                className="bg-blue-600 text-white px-4 py-2 rounded"
+                            >
+                                Volgende
+                            </button>
+                        </div>
+                    </div>
+                )}
+
+                {step === 5 && (
+                    <div>
+                        <h2 className="text-xl mb-4">Bevestiging</h2>
+
+                        <div className="mb-4 text-sm text-gray-700 space-y-2">
+                            <p><strong>Naam:</strong> {formData.naam}</p>
+                            <p><strong>Email:</strong> {formData.email}</p>
+                            <p><strong>Straat:</strong> {formData.straat}</p>
+                            <p><strong>Postcode:</strong> {formData.postcode}</p>
+                            <p><strong>Vraag:</strong> {formData.question}</p>
+                            <p><strong>Beschrijving:</strong> {formData.description}</p>
+                        </div>
+
+                        <div className="flex justify-between">
+                            <button
+                                onClick={prevStep}
+                                className="bg-gray-400 text-white px-4 py-2 rounded"
+                            >
+                                Vorige
+                            </button>
+
+                            <button
+                                onClick={handleSubmit}
+                                disabled={submitting}
+                                className="bg-green-600 text-white px-4 py-2 rounded disabled:opacity-50"
+                            >
+                                {submitting ? "Bezig..." : "Verzenden"}
+                            </button>
+                        </div>
+                    </div>
+                )}
+
+            </div>
+
         </div>
-      ),
-    },
-  ];
-
-  return (
-    <main className="min-h-screen">
-      <section className="bg-blue-50 border-b border-gray-300">
-        <div className="mx-auto max-w-3xl px-6 py-12">
-          <div className="text-center">
-            <h1 className="text-5xl font-bold text-gray-900 mb-2">WMO</h1>
-            <h2 className="text-2xl text-gray-900 font-medium mb-6">
-              Wet maatschappelijke ondersteuning
-            </h2>
-            <p className="text-gray-700 text-center max-w-2xl mx-auto">
-              Heeft u door ziekte, een handicap of ouderdom moeite nodig bij uw
-              dagelijks leven? Zoals hulp bij het huishouden of vervoer? Of
-              heeft u een voorziening nodig, zoals een traplift in huis? De
-              gemeente kan u daarbij helpen via de Wmo (Wet maatschappelijke
-              ondersteuning).
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white">
-        <div className="mx-auto max-w-3xl px-6 py-12">
-          <Accordion items={accordionItems} />
-        </div>
-      </section>
-    </main>
-  );
+    );
 }
-
-export default WMOForm;
