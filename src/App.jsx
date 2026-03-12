@@ -1,12 +1,14 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import WMOForm from "./pages/WMOForm";
-import CategoryDetail from "./pages/CategoryDetail";
-import AllTopics from "./pages/AllTopics";
-import Article from "./pages/Article";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import WMOForm from './pages/WMOForm';
+import CategoryDetail from './pages/CategoryDetail';
+import AllTopics from './pages/AllTopics';
+import Article from './pages/Article';
+import LoginPage from './pages/LoginPage.jsx';
+import PersonalPage from './pages/PersonalPage.jsx';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
             <Route path="/alle-onderwerpen" element={<AllTopics />} />
             <Route path="/categorie/:category" element={<CategoryDetail />} />
             <Route path="/artikel/:category/:topic" element={<Article />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/persoonlijke-gegevens" element={<PersonalPage />} />
           </Routes>
         </main>
         <Footer />
